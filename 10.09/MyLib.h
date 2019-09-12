@@ -1,0 +1,11 @@
+#pragma once;
+void task10(int a, int b);
+void task20(int a, int b, int c);
+void task30(int a);
+void bool10(int x, int y);
+void bool20(int x);
+void bool30(int a, int b, int c);
+void bool40(int a, int b, int x, int y);
+void int10(int x);
+void int20(int x);
+void int30(int x);
