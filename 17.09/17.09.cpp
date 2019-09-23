@@ -23,7 +23,7 @@ void switch10(char a, int b) {
 	}
 	switch (b)
 	{
-	case 1: c--; break; case -1:c++; break;
+	//case 1: c--; break; case -1:c++; break;
 	}
 	switch (c) {
 	case '1': cout<<'Ю'; break;
