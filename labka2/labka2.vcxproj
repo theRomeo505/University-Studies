@@ -20,11 +20,10 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{70203C0F-998A-4936-8E5E-913F05B29EE5}</ProjectGuid>
+    <ProjectGuid>{67EA14BB-2C5C-4401-AAFD-7985FDB7058E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>labka1</RootNamespace>
+    <RootNamespace>labka2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>labka1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -152,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="labka1.cpp" />
+    <ClCompile Include="..\labka1\labka2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

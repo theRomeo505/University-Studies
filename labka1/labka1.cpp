@@ -59,14 +59,13 @@ void laba1task2(int n) {
 int main()
 {
 	int n, s;
-	cin >> n >> s;
-	laba1task1(n, s);
+	//cin >> n >> s;
+	//laba1task1(n, s);
 	//cin >> n;
-	for (int i = 5; i < 8000; i++)
-	{
-		cout << i << ' ';
-		laba1task2(n);
-	}
+	
+		laba1task2(561);
+		
+	
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
