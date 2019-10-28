@@ -11,7 +11,7 @@ using namespace std;
 //по столбцам, условный оператор не использовать.
 int m, n;
 void mt10(int **b) {
-	for (int i = 1; i < m; i += 2)
+	for (int i = 0; i < m; i += 2)
 	{
 		for (int j = 0; j < n; j++) {
 			cout << b[i][j] << ' ';
