@@ -9,20 +9,19 @@ double dop(int i) {
 		s /= j;
 	return s;
 }
-void fun1() {
-	int i = 0; double eps,s=0;
-	cin >> eps;
+void fun1(double  eps) {
+	int i = 0; double s=0;
 	while (abs(dop(i)) > eps) {
 		s += dop(i);
 		i++;
 	}
 	cout<<s;
 }
-void fun2() {
-	int n, m,a,b,a1,b1,a2,b2,x,y,z;
-	cin >> n >> m;
+void fun2(int n,int m) {
+	int a,b,a1,b1,a2,b2,x,y,z;
+	
 	for (int i = 0; i < n; i++) {
-		a = rand() % (m ) * pow(-1, rand() % 2);
+		a = rand() % (m+1 ) * pow(-1, rand() % 2);
 		a1 = rand() % (m + 1) * pow(-1, rand() % 2);
 		a2 = rand() % (m + 1) * pow(-1, rand() % 2);
 		b = rand() % (m + 1) * pow(-1, rand() % 2);
@@ -35,11 +34,8 @@ void fun2() {
 			cout << x<<' ' << y <<' '<< z<<endl ;
 	}
 }
-void fun3() {
-	char* s = new char[1000];
-	char* s1 = new char[1000];
-	cin.getline(s, 1000);
-	cin.getline(s1, 1000);
+void fun3(char* s, char* s1) {
+	 
 	int n,i=0;
 	cin >> n;
 	while (s[i] > 0 && s[i]!=s1[n]) {
@@ -62,10 +58,9 @@ bool ifpal(char* s, int a, int b) {
 	//cout << endl;
 	return p;
 }
-void fun4()
+void fun4(char* s)
 {
-	char* s = new char[1000];
-	cin >> s;
+	 
 	int h = 0;
 	while (s[h] >= 0)
 		h++;
@@ -85,6 +80,43 @@ void fun4()
 		cout << s[j];
 	}
 }
+//
+int partition(int** a, int start, int end,int n)
+{
+	int pivot = a[n][end];
+
+	int P_index = start;
+	int i, t; 
+
+	for (i = start; i < end; i++)
+	{
+		if (a[n][i] <= pivot)
+		{
+			for (int j = 0; j <= n; j++) {
+				t = a[j][i];
+				a[j][i] = a[j][P_index];
+				a[j][P_index] = t;
+				P_index++;
+			}
+		}
+	}
+	for (int j = 0; j <= n; j++) {
+		t = a[j][end];
+		a[j][end] = a[j][P_index];
+		a[j][P_index] = t;
+	}
+	return P_index;
+}
+void Quicksort(int** a, int start, int end,int n)
+{
+	if (start < end)
+	{
+		int P_index = partition(a, start, end,n);
+		Quicksort(a, start, P_index - 1,n);
+		Quicksort(a, P_index + 1, end,n);
+	}
+}
+//
 void fun5() {
 	int n, k, s;
 	cin >> n >> k;
@@ -104,7 +136,8 @@ void fun5() {
 		m[n][j] = s;
 	}
 	int y;
-	for (int i = 0; i < k; i++) {
+	Quicksort(m, 0, k-1, n);
+	/*for (int i = 0; i < k; i++) {
 		for (int j = i + 1; j < k; j++) {
 			if (m[n][i] > m[n][j]) {
 				for (int g = 0; g <= n; g++) {
@@ -114,8 +147,8 @@ void fun5() {
 				}
 			}
 		}
-	}
-	for (int i = 0; i <= n; i++) {
+	}*/
+	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < k; j++) {
 			cout << m[i][j] << ' ';
 		}
@@ -125,8 +158,6 @@ void fun5() {
 }
 int main()
 {
-	
 	fun5();
-
 }
 
