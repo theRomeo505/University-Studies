@@ -15,27 +15,27 @@ student* inp(int n) {
 	ofstream ff("new");
 	student h;
 	for (int i = 0; i < n; i++) {
-		cin>>h.s>>h.numba>>h.marks[0]>>h.marks[1]>>h.marks[2]>>h.marks[3]>>h.marks[4];
-		ff.write((char*)&h, sizeof(h));
-		
+		cin >> h.s >> h.numba >> h.marks[0] >> h.marks[1] >> h.marks[2] >> h.marks[3] >> h.marks[4];
+		ff.write((char*)& h, sizeof(student));
+
 	}
 	ff.close();
 	ifstream f("new");
 	for (int i = 0; i < n; i++) {
 
-		f >> (char*)& m[i];
-		cout << m[i].s;
+		f.read((char*)& m[i],sizeof(student));
+		//cout << m[i].s;
 	}
 	for (int i = 0; i < n; i++) {
 		for (int j = i + 1; j < n; j++) {
 			if (m[i].numba > m[j].numba) {
-				 h = m[i];
+				h = m[i];
 				m[i] = m[j];
 				m[j] = h;
 			}
 		}
 	}
-	
+
 	return m;
 }
 void cool(int n, student* m) {
@@ -48,7 +48,7 @@ void cool(int n, student* m) {
 		if (s / 5 >= 4)
 		{
 			p = true;
-			cout << m[i].s <<' '<< m[i].numba<<endl;
+			cout << m[i].s << ' ' << m[i].numba << endl;
 		}
 	}
 	if (!p)
@@ -59,7 +59,7 @@ int main()
 	//ofstream f("new.txt");
 	int n;
 	cin >> n;
-	student* p= inp(n);
-	cool(n,p);
+	student* p = inp(n);
+	cool(n, p);
 }
 
