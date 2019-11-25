@@ -12,6 +12,29 @@ struct scan_info {
 	int grey;
 };
 using namespace std;
+
+void infile(scan_info *m,string name,int count) {
+	ofstream in(name);
+	in << (long)count;
+	for (int i = 0; i < count; ++i) {
+		in.write((char*)& m[i], sizeof(scan_info));
+	}
+	in.close();
+
+}
+scan_info* sortt(scan_info* m, int count) {
+	for (int i = 0; i < count; i++) {
+		for (int j = i + 1; j < count; j++) {
+			if (strcmp(m[i].model, m[j].model) > 0)
+			{
+				scan_info p = m[i];
+				m[i] = m[j];
+				m[j] = p;
+			}
+		}
+	}
+	return m;
+}
 int main()
 {
 	int count;
@@ -23,13 +46,11 @@ int main()
 		out.read((char*)& m[i], sizeof(scan_info));
 	}
 	out.close();
-
-	ofstream in("scan");
-	in << (long)count;
-	for (int i = 0; i < count; ++i) {
-		in.write((char*)& m[i], sizeof(scan_info));
-	}
-	in.close();
+	/////
+	
+	
+	
+	/////
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
