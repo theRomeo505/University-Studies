@@ -53,40 +53,26 @@ void md5(char* p, int n) {
 	unsigned int b0 = 0xefcdab89;   //B
 	unsigned int c0 = 0x98badcfe;   //C
 	unsigned int d0 = 0x10325476;   //D
-	string ss; p += 1;
+	string ss; //p += 1;
 	//cout <<p<<"k"<<sizeof(p);
 	//int a = 6;
 	//int nn = 9;//bool k;
 	unsigned int ** u = new unsigned int* [ceil((double)n / 64) +1];
 	for (int i = 0; i < ceil((double)n / 64) + 1; i++)
-		u[i] = new unsigned int[8];
+		u[i] = new unsigned int[16];
 	int j,jui= ceil((double)n / 64);
-	/*for ( j = 0; j < ceil((double)n / 64-1) ; j++) {
-		//const size_t N = 4;  // bound on string length
-		
-		for (int i = 0; i < 64; i++) {
-			//if (p[i] < 0)
-				//break;
-			char c = p[64*j+i];
-			for (int jj = 7; jj >= 0 && c; --jj) {
-				if (c & 0x1) {
-					u[j].set(8 * i + jj);
-				}
-				c >>= 1;
-			}
-		}
-		
-		for (int ii = 0; ii < 256; ii++) {
-		bool	k = u[j][ii];
-			u[j][ii] = u[j][512- ii - 1];
-			u[j][512 - ii - 1] = k;
-		}
-		
-	}*/
+	for (int i = 0; i < ceil((double)n / 64) + 1; i++)
+		for (int j = 0; j < 16; j++)
+			u[i][j] = 0;
 	for (j = 0; j < ceil((double)n / 64 -1); j++) {
+		
 		for (int i = 64 * j+3; i < 64 * j + 64; i+=4) {
 			int y = 0;
+			//if (i >= n) {
+				//	break;
+				//}
 			for (int g = i+4; g > i ; g--) {
+				
 				y *= 256;
 				y += p[g];
 			}
@@ -95,49 +81,59 @@ void md5(char* p, int n) {
 		}
 		cout << endl;
 	}
-	system("pause");
+	int tick=0,ttick=0;
+	//for (j = 0; j < ceil((double)n / 64 ); j++) {
 
-	////
-	/*int i;
-	for (i = 0; i < 64; i++) {
-		if (p[i] < 0)
-			break;
-		char c = p[64 * j + i];
-		for (int jj = 7; jj >= 0 && c; --jj) {
-			if (c & 0x1) {
-				u[j].set(8 * i + jj);
+		for (int i = 64 * j + 3; i < 64 * j + 64; i += 4) {
+			int y = 0;
+			//if (i >= n) {
+			//break;
+		//}
+			tick = 0;
+			for (int g = i; g > i-4; g--) {
+				
+				y *= 256;
+				if (g >= n) {
+				//	cout << tick << 'j';
+					tick = g-i+3;
+				}else y += p[g];
+				//cout << g << ' '<< y << endl;
 			}
-			c >>= 1;
+			if (tick > 0) {
+				
+				y*= pow(256, 4 - tick);
+				u[j][(i - 64 * j) / 4] = y +pow(256, 3 - tick);
+				cout << u[j][(i - 64 * j) / 4] << ' ';
+				ttick++;
+				break;
+			}
+			ttick++;
+			u[j][(i - 64 * j) / 4] = y;
+			cout << u[j][(i - 64 * j) / 4] << ' ';
 		}
-	}
-	for (int ii = 0; ii < 256; ii++) {
-		bool k = u[j][ii];
-		u[j][ii] = u[j][512 - ii - 1];
-		u[j][512 - ii - 1] = k;
-	}
-	
-	
-	if (i >= 54) {
-	//cout << i << endl;
-		u[jui] = (long)n*8;
-		if (i == 64)
-			u[jui][511] = 1;
-		jui++;
-	}
-	else {
-		u[j][511-i*8+8] = 1;
-		long ll = 0, nn = (long)(n-1) * 8;
-		while (nn > 0) {cout << nn%2 << endl;
-			u[jui - 1][ll] = nn % 2;
-			nn /= 2;
-			ll++;
-			
+		cout << endl;
+	//}
+		//cout << ttick;
+
+		if (ttick < 14) {
+			u[j][14] = n / pow(2, 32);
+			u[j][15] = n % ((int)pow(2, 32));
+			//cout << u[j][15];
 		}
-	}*/
+		else {
+			jui++;
+			u[j+1][14] = n / pow(2, 32);
+			u[j+2][15] = n % ((int)pow(2, 32));
+		}
+	
+	for (int i = 0; i < 16; i++)
+		cout << u[0][i] << ' ';
+	cout << endl;system("pause");
+	
 	////
 	int **uu = new int* [jui];
 	int r;
-	for (int i = 0; i < jui; i++) {
+	/*for (int i = 0; i < jui; i++) {
 		uu[i] = new int[16];
 		for (int j = 0; j < 16; j++) {
 			r = 0x0;
@@ -183,16 +179,16 @@ void md5(char* p, int n) {
 			//
 		}
 	}
-
-	cout << u[j] << endl;
+	*/
+	//cout << u[j] << endl;
 	int A, B, C, D,f, g;
 	for (int j = 0; j < jui; j++) {
 		int m[16];
-		for (int i = 0; i < 16; i++) {
-			for (int ii = 32 * i; ii < 32 * i + 32; ii++) {
+		//for (int i = 0; i < 16; i++) {
+			//for (int ii = 32 * i; ii < 32 * i + 32; ii++) {
 			//	m[i][ii % 32] = u[j][ii];
-			}
-		}
+			//}
+		//}
 		A = a0;
 		B = b0;
 		C = c0;
@@ -214,7 +210,7 @@ void md5(char* p, int n) {
 				f = (C & ~(B | ~D)) | (~C & (B | ~D));
 				g = (7 * i) % 16;
 			}
-			f = f + A + k[i] + m[g];
+			f = f + A + k[i] + u[j][g];
 		}
 	}
 	//bitset<8> o, b, c;`
@@ -229,12 +225,20 @@ void md5(char* p, int n) {
 //////////////////
 int main()
 {
-	char s[11] = " bibb cock";
+	char s[11] =  "abcdefghik";
+	//cin >> s;
+	//cout << s << endl;
+	//s -= 1;
+	//cout << s << endl;
+
+	//s[0]= 'p';
+	//cout << s << endl;
 	//int b = 13;
 	//int y = 0x0;
 	//cout << (y + 0xa)<<' ';
 	//unsigned int i = pow(2, 32);
 	//cout << i << endl;
+	//cout << (int)'d';
 	md5(s, 10);
 }
 
