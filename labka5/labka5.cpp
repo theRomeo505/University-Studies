@@ -29,7 +29,7 @@ void labka5task1() {
 }
 void labka5task2() {
 	ofstream f("laba");
-	int n, x, y; double s;
+	int n, x, y; double s=0;
 	cin >> n;
 	int* m = new int[n];
 	for (int i = 0; i < n; i++)
@@ -41,8 +41,8 @@ void labka5task2() {
 	f1 >> x; int i = 1;
 	while (!f1.eof()) {
 		f1 >> y;
-		//check		s *= (double)i / (i + 1);
-			//	s += x * y / (i + 1);
+		s *= i; s/=(i + 1);
+				s += x * y / (i + 1);
 		x = y;
 	}
 }//////////////////////////////
@@ -244,7 +244,7 @@ void md5(char* p, int n) {
 //////////////////
 int main()
 {
-	char s[11] = "abcdefghik";
+	char s[11] = "bibb cock";
 	//cin >> s;
 	//cout << s << endl;
 	//s -= 1;
@@ -258,6 +258,8 @@ int main()
 	//unsigned int i = pow(2, 32);
 	//cout << i << endl;
 	//cout << (int)'d';
+	double y = 3;
+	cout << y * 2 / 3<<endl;
 	md5(s, 10);
 }
 
