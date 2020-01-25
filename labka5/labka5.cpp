@@ -41,14 +41,15 @@ void labka5task2() {
 	f1 >> x; int i = 1;
 	while (!f1.eof()) {
 		f1 >> y;
-		s *= i; s/=(i + 1);
-				s += x * y / (i + 1);
+		s *= i/(i + 1);
+		s += x * y / (i + 1);
 		x = y;
+		i++;
 	}
 }//////////////////////////////
 int leftrotate(int x, int c)
 {
-	return x << c || x >> (32 - c);
+	return (x << c) | (x >> (32 - c));
 }
 
 void md5(char* p, int n) {
@@ -139,55 +140,11 @@ void md5(char* p, int n) {
 	////
 	int** uu = new int* [jui];
 	int r;
-	/*for (int i = 0; i < jui; i++) {
-		uu[i] = new int[16];
-		for (int j = 0; j < 16; j++) {
-			r = 0x0;
-			for (int g = 32 * (j); g < 32*(j +1); g++) {
-				r *= 2;
-				r += u[i][g];
-			} ///// divide into groups 4 bit each zen skleit
-			switch (r) {
-			case 1:
-				uu[i][j] = 0x1;
-				break;case 2:
-				uu[i][j] = 0x2;
-				break;case 3:
-				uu[i][j] = 0x3;
-				break;case 4:
-				uu[i][j] = 0x4;
-				break;case 5:
-				uu[i][j] = 0x5;
-				break;case 6:
-				uu[i][j] = 0x6;
-				break;case 7:
-				uu[i][j] = 0x7;
-				break;case 8:
-				uu[i][j] = 0x8;
-				break;case 9:
-				uu[i][j] = 0x9;
-				break;case 10:
-				uu[i][j] = 0xa;
-				break;case 11:
-				uu[i][j] = 0xb;
-				break;case 12:
-				uu[i][j] = 0xc;
-				break;case 13:
-				uu[i][j] = 0xd;
-				break;case 14:
-				uu[i][j] = 0xe;
-				break;case 15:
-				uu[i][j] = 0xf;
-				break;
-			}
+	
 
 
-			//
-		}
-	}
-	*/
 	//cout << u[j] << endl;
-	int A, B, C, D, f, g;
+	unsigned int A, B, C, D, f, g;
 	for (int j = 0; j < jui; j++) {
 		//int m[16];
 		//for (int i = 0; i < 16; i++) {
@@ -199,6 +156,8 @@ void md5(char* p, int n) {
 		B = b0;
 		C = c0;
 		D = d0;
+		cout << endl << A << ' ' << B << ' ' << C << ' ' << D << endl;
+
 		for (int i = 0; i < 64; i++) {
 			if (i < 16) {
 				f = (B & C) | (~B & D);
@@ -209,7 +168,7 @@ void md5(char* p, int n) {
 				g = (5 * i + 1) % 16;
 			}
 			else if (i < 48) {
-				f = (((~B & C) | (~C & B)) & ~D) | (~((~B & C) || (~C & B)) & D);
+				f = (((~B & C) | (~C & B)) & ~D) | (~((~B & C) | (~C & B)) & D);
 				g = (3 * i + 5) % 16;
 			}
 			else {
@@ -220,16 +179,20 @@ void md5(char* p, int n) {
 			A = D;
 			D = C;
 			C = B;
+			cout << B << ' ';
 			B = B + leftrotate(f, s[i]);
+			cout << B << endl;
+			//cout << endl << A << ' ' << B << ' ' << C << ' ' << D <<' '<<f<< endl;
 		}
 		a0 = a0 + A;
 		b0 = b0 + B;
 		c0 = c0 + C;
 		d0 = d0 + D;
+		cout << endl << a0 <<' '<< b0 <<' '<< c0 <<' ' <<d0 << endl;
+
 	}
 	//bitset<8> o, b, c;`
 	//o[0] = b[0] + c[0];
-	cout << endl << a0 <<' '<< b0 <<' '<< c0 <<' ' <<d0 << endl;
 }
 
 //bitset<8> o, b, c;`
@@ -244,12 +207,15 @@ void md5(char* p, int n) {
 //////////////////
 int main()
 {
-	char s[11] = "bibb cock";
+	char s[16] = "bibb cocks";
 	//cin >> s;
 	//cout << s << endl;
 	//s -= 1;
 	//cout << s << endl;
-
+	int a = 1111;
+	a >> 2;
+	//cout << a;
+	system("pause");
 	//s[0]= 'p';
 	//cout << s << endl;
 	//int b = 13;
@@ -258,8 +224,8 @@ int main()
 	//unsigned int i = pow(2, 32);
 	//cout << i << endl;
 	//cout << (int)'d';
-	double y = 3;
-	cout << y * 2 / 3<<endl;
-	md5(s, 10);
+	//double y = 3;
+	//cout << y * 2 / 3<<endl;
+	md5(s, 11);
 }
 
