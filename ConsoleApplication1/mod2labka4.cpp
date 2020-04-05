@@ -106,4 +106,5 @@ int main()
 	system("Pause");
 	
 	cout<<tr(p);
+
 }
