@@ -8,7 +8,7 @@ const int char_sz = 20;
 struct node {
 	char eng[char_sz];
 	char rus[char_sz];
-	int obr;
+	int calls;
 	node* left;
 	node* right;
 };
@@ -20,9 +20,9 @@ node* addnode(node* tree, char eng[]) {
 		}
 		cout << "enter Russian: ";
 		cin.getline(tree->rus, 20);
-		cout << "enter OBR( ONLY NUMBERS): ";
-		cin >> tree->obr;
-		if (tree->obr < 0) tree->obr = 0;
+		cout << "enter calls( ONLY NUMBERS): ";
+		cin >> tree->calls;
+		if (tree->calls < 0) tree->calls = 0;
 		cin.ignore();
 		tree->left = NULL;
 		tree->right = NULL;
@@ -34,7 +34,7 @@ node* addnode(node* tree, char eng[]) {
 }
 void array_fuller(node* tree, int* arr, int i) {
 	if (tree != NULL) {
-		arr[i] = tree->obr;
+		arr[i] = tree->calls;
 		if (tree->left != NULL) {
 			i++;
 			/*arr = */array_fuller(tree->left, arr, i);
@@ -47,14 +47,14 @@ void array_fuller(node* tree, int* arr, int i) {
 
 void finder(node* tree3, node* tree, int obr) {
 	if (tree != NULL) {
-		if (obr == tree->obr) {
+		if (obr == tree->calls) {
 			for (int j = 0; j < strlen(tree->eng) + 1; j++) {
 				tree3->eng[j] = tree->eng[j];
 			}
 			for (int k = 0; k < strlen(tree->rus) + 1; k++) {
 				tree3->rus[k] = tree->rus[k];
 			}
-			tree3->obr = obr;
+			tree3->calls = obr;
 			tree3 = tree;
 		}
 		finder(tree3, tree->left, obr);
@@ -65,7 +65,7 @@ node* swap(node* tree, node* tree2, int obr) {
 	if (tree != NULL) {
 		if (tree2 == NULL) {
 			tree2 = new node;
-			tree2->obr = obr;
+			tree2->calls = obr;
 			tree2->left = NULL;
 			tree2->right = NULL;
 			for (int j = 0; j < strlen(tree->eng) + 1; j++) {
@@ -76,7 +76,7 @@ node* swap(node* tree, node* tree2, int obr) {
 			}
 			return tree2;
 		}
-		else if (obr < tree2->obr) {
+		else if (obr < tree2->calls) {
 			tree2->left = swap(tree, tree2->left, obr);
 		}
 		else {
@@ -93,8 +93,8 @@ node* createempttree(node* tree) {
 		cout << "enter Russian: ";
 		cin.getline(tree->rus, 20);
 		cout << "enter OBR( ONLY NUMBERS): ";
-		cin >> tree->obr;
-		if (tree->obr < 0) tree->obr = 0;
+		cin >> tree->calls;
+		if (tree->calls < 0) tree->calls = 0;
 		cin.ignore();
 		tree->left = NULL;
 		tree->right = NULL;
@@ -105,7 +105,7 @@ void* view_tree(node* tree) {
 	if (tree != NULL) {
 		cout << "English: " << tree->eng << endl;
 		cout << "Russian: " << tree->rus << endl;
-		cout << "Calls: " << tree->obr << endl;
+		cout << "Calls: " << tree->calls << endl;
 		view_tree(tree->left);
 		view_tree(tree->right);
 	}
