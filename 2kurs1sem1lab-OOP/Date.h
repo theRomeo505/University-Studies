@@ -1,5 +1,5 @@
 #pragma once
-
+class Duration;
 class Date {
 public:
     int year;

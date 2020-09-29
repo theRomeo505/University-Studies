@@ -24,7 +24,7 @@
         //   this->next = NULL;
     }
   void  Date::show() {
-        std::cout << day << ' ' << month << ' ' << year << " " << ((hour / 10 == 0) ? " 0" : " ") << hour << ((min / 10 == 0) ? ":0" : ":") << min << ((sec / 10 == 0) ? ":0" : "0") << sec << endl;
+        std::cout << day << ' ' << month << ' ' << year << " " << ((hour / 10 == 0) ? " 0" : " ") << hour << ((min / 10 == 0) ? ":0" : ":") << min << ((sec / 10 == 0) ? ":0" : "0") << sec << std::endl;
     }
   bool  Date::isRight() {
         int months[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
@@ -44,7 +44,7 @@
         //this->min += d.min;
         sec += d.insec();
         min += sec / 60;
-        sec += this->sec % 60;
+        sec = sec % 60;
        
         while (this->min >= 60)
         {
@@ -72,7 +72,7 @@
         Date d(1, 1, 1900, 0, 0, 0); // Monday
         std::string weekd[7] = { "mon","tue","wed","th","fri","sat","sun" };
         Duration dur(*this, d);
-        std::cout << weekd[(dur.indays()) % 7];
+        //std::cout << weekd[(dur.indays()) % 7];
         return dur.indays() % 7 + 1;
     }
     int Date::weeknumber_year() {
@@ -84,22 +84,22 @@
         }
         dday += this->day;
         dday -= this->weekday() - 1; // monday
-        return dday / 7;
+        return dday / 7+1;
     }
     int Date::weeknumbermonth() {
         int dday = this->day - this->weekday() + 1;
-        return dday / 7;
+        return dday / 7+1;
     }
     void Date::alternate() {
         std::string weekd[7] = { "mon","tue","wed","th","fri","sat","sun" };
         std::string months[12] = { "jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec" };
-        std::cout << this->weeknumbermonth() << weekd[this->weekday()] << " of " << months[this->month];
+        std::cout << this->weeknumbermonth() << weekd[this->weekday()] << " of " << months[this->month]<<std::endl;
     }
     void Date::ulian() {
         int a = (14 - this->month) / 12;
         int y = this->year + 4800 - a;
         int m = this->month + 12 * a - 3;
         int jdn = this->day + (153 * m + 2) / 5 + 365 * y + y / 4 - y / 100 + y / 400 - 32045;
-        cout << "julian day " << jdn;
+        std::cout << "julian day " << jdn<<std::endl;
     }
 
