@@ -1,6 +1,6 @@
 #include "Duration.h"
 #include "Date.h"
-class Duration;
+//class Duration;
    Duration::Duration(Date d1, Date d2) {
         int months[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 };
         Date d(d2.day - d1.day, d2.month - d1.month, d2.year - d1.year, d2.hour - d1.hour, d2.min - d1.min, d2.sec - d1.sec);

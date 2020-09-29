@@ -3,7 +3,6 @@
 #include"Date.h"
 #include "Duration.h"
 #include <iostream>
-using namespace std;
 template <class T>
 bool compare(T a, T b)
 {
@@ -62,5 +61,5 @@ int main()
     d.add(Duration(d,d1));
     Duration dur(d, d1);
     d.show();
-    cout << d.isRight();
+    std::cout << d.isRight();
 }

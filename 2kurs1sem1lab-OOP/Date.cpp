@@ -1,9 +1,9 @@
 #include "Date.h"
 #include "Duration.h"
 #include <iostream>
-using namespace std;
+//using namespace std;
 //class Duration;
-class Date; 
+//class Date; 
      Date::Date() {
         this->year = 2000;
         this->month = 1;
@@ -24,7 +24,7 @@ class Date;
         //   this->next = NULL;
     }
   void  Date::show() {
-        cout << day << ' ' << month << ' ' << year << " " << ((hour / 10 == 0) ? " 0" : " ") << hour << ((min / 10 == 0) ? ":0" : ":") << min << ((sec / 10 == 0) ? ":0" : "0") << sec << endl;
+        std::cout << day << ' ' << month << ' ' << year << " " << ((hour / 10 == 0) ? " 0" : " ") << hour << ((min / 10 == 0) ? ":0" : ":") << min << ((sec / 10 == 0) ? ":0" : "0") << sec << endl;
     }
   bool  Date::isRight() {
         int months[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
@@ -43,7 +43,7 @@ class Date;
         //this->hour += d.hour;
         //this->min += d.min;
         sec += d.insec();
-        min += this->sec / 60;
+        min += sec / 60;
         sec += this->sec % 60;
        
         while (this->min >= 60)
@@ -70,9 +70,9 @@ class Date;
     }
     int Date::weekday() {
         Date d(1, 1, 1900, 0, 0, 0); // Monday
-        string weekd[7] = { "mon","tue","wed","th","fri","sat","sun" };
+        std::string weekd[7] = { "mon","tue","wed","th","fri","sat","sun" };
         Duration dur(*this, d);
-        cout << weekd[(dur.indays()) % 7];
+        std::cout << weekd[(dur.indays()) % 7];
         return dur.indays() % 7 + 1;
     }
     int Date::weeknumber_year() {
@@ -91,9 +91,9 @@ class Date;
         return dday / 7;
     }
     void Date::alternate() {
-        string weekd[7] = { "mon","tue","wed","th","fri","sat","sun" };
-        string months[12] = { "jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec" };
-        cout << this->weeknumbermonth() << weekd[this->weekday()] << " of " << months[this->month];
+        std::string weekd[7] = { "mon","tue","wed","th","fri","sat","sun" };
+        std::string months[12] = { "jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec" };
+        std::cout << this->weeknumbermonth() << weekd[this->weekday()] << " of " << months[this->month];
     }
     void Date::ulian() {
         int a = (14 - this->month) / 12;
