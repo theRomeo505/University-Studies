@@ -30,18 +30,18 @@ void quickSort(vector<int>& array, int low, int high)
 	if (i < high)
 		quickSort(array, i, high);
 }
-bool allnewpeace(bool* m,int n) {
+bool allnewpeace(bool* m,int n,int j) {
 	for (int i = 0; i < n; i++)
-		if (m[i] == false)
+		if (m[i] == false && i!=j)
 			return false;
 	return true;
 }
-int minim(int* m, int n,bool* p)
+int minim(int* m, int n,bool* p,int j)
 {
 	int min = 999999,minindex=999999;
 	for (int i = 0; i < n; i++)
 	{
-		if (m[i] < min && !p[i])
+		if (m[i] < min && !p[i] && i!=j)
 		{
 			min = m[i];
 			minindex = i;
@@ -49,16 +49,37 @@ int minim(int* m, int n,bool* p)
 	}
 	return minindex;
 }
+int sum(int* m, int n) {
+	int sum = 0;
+	for (int i = 0; i < n; i++)
+		sum += m[i];
+	return sum;
+}
 int main()
 {
 	srand(time(NULL));
 	int n, max, files;
 	cin >> n >> max >> files;
-	int peaces = (n) / (max)+((n % max == 0) ? 0 : 1);
-	if ((peaces - 1) % (files - 2) != 0)
-	{
-		peaces += files - 1 - peaces % (files - 2);
+	int *dop=new int[files];
+	dop[0] = 1;
+	for (int i = 1; i < files; i++)
+		dop[i] = 0;
+	int j = 0,coun=0;
+	while (sum(dop, files) < n / max) {
+		for (int i = 0; i < files; i++) {
+			if (i != j)
+				dop[i] += dop[j];
+		}
+		dop[j] = 0;
+		j++;
+		coun++;
+		j = j % files;
+		//for (int i = 0; i < files; i++)
+			//cout << dop[i] << ' ';
+		//cout << endl;
 	}
+	int peaces = sum(dop, files);
+	j --; // pointer on start point kekw
 	// 0 1 equal 
 	int* m = new int[n];
 	for (int i = 0; i < n; i++)
@@ -68,147 +89,124 @@ int main()
 
 
 
-
-	//f.close();
-	//f.open("file2");
-	vector<FILE*> fs(files);
-	fs[0] = fopen("0", "wb");
-	fclose(fs[0]);
-	fs[1] = fopen("1", "wb");
-	vector <int> mm;
-	int i = 0;
-	cout << "start" << endl;
-
-	for (i = 0; i < inpeace; i++) {
-		mm.push_back(m[i]);
-	}
-	quickSort(mm, 0, inpeace - 1);
-
-	for (i = 0; i < inpeace; i++) {
-		fwrite(&mm[i], sizeof(int), 1, fs[1]);
-		//cout << mm[i] << ' ';
-	}
-	fclose(fs[1]);
-	//cout << endl;
-	int g = 2;
-	//string fil = "file";
-	//cout <<(char)(2 + '0');
-	fs[2] = fopen("2", "wb");
-	for (i = 1; i < peaces; i++) {
-		//cout << endl << i << ' ' << (peaces - 1) / (files - 2) << endl;
-		mm.clear();
-		
-		for (int j = 0; j < inpeace; j++) {
-			mm.push_back(m[inpeace * i + j]);
-		}
-		if (i == peaces - 1)
-		{
-			int k = inpeace * peaces;
-			while (k < n) {
-				mm.push_back(m[k]);
-				k++;
-			}
-		}
-		quickSort(mm, 0, mm.size() - 1);
-
-		for (int j = 0; j < mm.size(); j++) {
-			fwrite(&mm[j],sizeof(int),1,fs[g]);
-			//cout << mm[j]<<' ';
-		}
-		if (i % ((peaces - 1) / (files - 2)) == 0) {
-			//cout << endl;
-			fclose(fs[g]);
-			//f.open("file" + (g+'0'));
-			g++;
-			char fli[5];
-						_itoa(g, fli, 10);
-//cout << "fli" << _itoa(g, fli, 10) << endl;
-			if (g<fs.size())
-			fs[g] = fopen(fli, "wb");
-		}
-		//cout << endl;
-		
-	}
-	cout << "separated"<<endl;
-	fclose(fs[files - 1]);
-	//system("PAUSE");
 	char fli[5];
+	vector<FILE*> fs(files);
+	vector<int> perm;
+	int ptr = 0;
 	for (int i = 0; i < files; i++) {
-		fs[i] = fopen(_itoa(i,fli,10), "rb");
+		fs[i] = fopen(_itoa(i,fli,10), "wb");
+		for (int g = 0; g < dop[i]; g++) {
+			for (int k = 0; k < inpeace; k++)
+			{
+				perm.push_back(m[ptr + k]);
+				//cout << ptr + k << ' ' << m[ptr + k] << endl;
+				//ptr++;
+			}
+			quickSort(perm,0,perm.size()-1);
+			for (int k = 0; k < inpeace; k++)
+			{
 
-		int x;
-		while (fread(&x, sizeof(int), 1, fs[i]) != NULL)
-		{
-		}//cout << x<<' ';
-		//cout << endl<<endl;
+				fwrite(&perm[k], sizeof(int), 1, fs[i]);
+			}
+			ptr += inpeace;
+			perm.clear();
+		}
 		fclose(fs[i]);
 	}
+	cout << "separated"<<endl;
+	
+	//system("PAUSE");
+	/*for (int i = 0; i < files; i++) {
+		fs[i] = fopen(_itoa(i,fli,10), "rb");
+
+		int x,y=0;
+		while (fread(&x, sizeof(int), 1, fs[i]) != NULL)
+		{if (x < y)
+				cout << endl;
+			cout << x << ' ';
+			
+			y = x;
+		}
+		cout << endl<<endl;
+		fclose(fs[i]);
+	}*/
+	//system("pause");
 	/// algor 
 	 char r[5];
-	for (int j = 2; j < files; j++)
-		fs[j] = fopen(_itoa(j, r, 10), "rb");
+	 for (int g = 0; g < files; g++)
+	 {
+		 if (g != j)
+			 fs[g] = fopen(_itoa(g, r, 10), "rb");
+		 else
+			 fs[g] = fopen(_itoa(g, r, 10), "wb");
+	 }
 	int *numbers=new int[files];
 	bool *newpeace=new bool[files];
+
+	for (int i = 0; i < files; i++)
+	{
+		numbers[i] = 0;
+		newpeace[i] = false;
+	}
+	
 	int num;
-	for (int j = 0; j < files; j++)
-		{
-			 
-			if (j > 1) {
-				fread(&num, sizeof(int), 1, fs[j]);
-				numbers[j] = num;
-			}
-		}
-	for (int i = 0; i < ((peaces - 1) / (files - 2)); i++) {
-		if (i%25==0)
-		cout << i << "iteration of "<< ((peaces - 1) / (files - 2)) << endl;
-		for(int j = 0; j < files; j++)
-		{
-			newpeace[j] = false;
-		}
-		if (i != 0) {
-			fclose(fs[0]);
-			fclose(fs[1]);
-		}
-		if (i % 2 == 0) {
-			fs[0] = fopen("0", "wb");
-			fs[1] = fopen("1", "rb");
-			newpeace[0] = true;
-			fread(&numbers[1], sizeof(int), 1, fs[1]);
-		}
-		else {
-			fs[0] = fopen("0", "rb");
-			fs[1] = fopen("1", "wb");
-			newpeace[1] = true;
-			fread(&numbers[0], sizeof(int), 1, fs[0]);
-		}
-		int minindex,nextnum;
-		//fread(&num, sizeof(int), 1, fs[2]);
-		//cout << num << "nextnum";
-		while (allnewpeace(newpeace,files) != true) {
-			//for (int k = 0; k < files; k++) {
-				//cout << newpeace[k] << ' ' << (newpeace[k] ? -1 : numbers[k]) << endl;
-			//}
-			//cout << endl;
-			
-			minindex=minim(numbers,files,newpeace);
-			fwrite(&numbers[minindex], sizeof(int), 1, fs[i % 2]);
-			
-			if (fread(&nextnum, sizeof(int), 1, fs[minindex]) != NULL) {
-				//cout << nextnum << "nextnum" << ' ' << minindex << endl;;
-				//cout << nextnum << ' ';
-				if (nextnum < numbers[minindex])
-					newpeace[minindex] = true;
-				numbers[minindex] = nextnum;
-			}
-			else
-				newpeace[minindex] = true;
+	for (int g = 0; g < files; g++) {
+		if (g != j) {
+			fread(&num, sizeof(int), 1, fs[g]);
+			numbers[g] = num;
 		}
 	}
-	cout << "end";
-	fclose(fs[0]);
-	fclose(fs[1]);
-	//fs[(((peaces - 1) / (files - 2))-1)%2] = fopen(_itoa((((peaces - 1) / (files - 2)) - 1) % 2,fli,10), "rb");
-	//int h;
-	//while (fread(&h, sizeof(int), 1, fs[(((peaces - 1) / (files - 2)) - 1) % 2]) != NULL)
-		//cout << h << ' ';
+	//vector<int> my;
+	for (int g = 0; g < coun; g++)
+		{
+			 
+			
+			int prev = j - 1;
+			if (prev == -1)
+				prev += files;
+			for (int d = 0; d < dop[prev]; d++)
+			{
+				while (!allnewpeace(newpeace, files,j)) {
+					//for (int y = 0; y < files; y++) {
+						//cout << numbers[y] << ' ';
+					//}cout << endl;
+					//system("pause");
+					int poi=minim(numbers, files, newpeace,j);
+					fwrite(&numbers[poi], sizeof(int),1, fs[j]);
+					//my.push_back(numbers[poi]);
+					int next; bool b = false;
+					if (fread(&next, sizeof(int), 1, fs[poi]) == NULL)
+						b = true;
+					if (next < numbers[poi] || b)
+						newpeace[poi] = true;
+					numbers[poi] = next;
+				}
+				//for (int m = 0; m < my.size(); m++)
+					//cout << my[m] << ' ';
+				//system("pause"); 
+				for (int h = 0; h < files; h++)
+					newpeace[h] = false;
+			}
+			for (int dd = 0; dd < files; dd++) {
+				if (dd != prev)
+					dop[dd] -= dop[prev];
+			}
+			dop[prev] = 0;
+			//my.clear();
+			cout << g+1 <<"of"<<coun<< "done" << endl;
+			fclose(fs[j]);
+			fclose(fs[prev]);
+			fs[j] = fopen(_itoa(j, r, 10), "rb");
+			fs[prev] = fopen(_itoa(prev, r, 10), "wb");
+			fread(&numbers[j], sizeof(int), 1, fs[j]);
+			j--;
+			if (j == -1)
+				j += files;
+		}
+	//fs[0] = fopen("0", "rb");
+	int y;
+	//while (fread(&y, sizeof(int), 1, fs[0]) != NULL) {
+	//	cout << y << ' ';
+	//}
+	cout << "done";
 }
