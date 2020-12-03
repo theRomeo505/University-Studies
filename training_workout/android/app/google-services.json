@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "694250342003",
+    "firebase_url": "https://my-project-1532773913118.firebaseio.com",
+    "project_id": "my-project-1532773913118",
+    "storage_bucket": "my-project-1532773913118.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694250342003:android:962f6aa9fc8aa5efe38c06",
+        "android_client_info": {
+          "package_name": "com.example.firtstest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694250342003-jib71cc8c2bck2jrpnvl4j0cveqtuj9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW0b_2S22MuH1xxo7eNt51-5hhX6eIY68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694250342003-jib71cc8c2bck2jrpnvl4j0cveqtuj9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694250342003:android:e674f2d926ae6e7fe38c06",
+        "android_client_info": {
+          "package_name": "mobi.devsteam.training_workout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694250342003-jib71cc8c2bck2jrpnvl4j0cveqtuj9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW0b_2S22MuH1xxo7eNt51-5hhX6eIY68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694250342003-jib71cc8c2bck2jrpnvl4j0cveqtuj9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

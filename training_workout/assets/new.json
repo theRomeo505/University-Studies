@@ -1,0 +1,545 @@
+{
+  "type": "male",
+  "data": [
+    {
+      "name": "wake_up",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 28
+        },
+        {
+          "duration":30000,
+          "img_key": 24
+        },
+        {
+          "duration": 30000,
+          "img_key": 25
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 24
+        },
+        {
+          "duration":30000,
+          "img_key": 18
+        },
+        {
+          "duration":30000,
+          "img_key": 25
+        },
+        {
+          "duration":30000,
+          "img_key": 19
+        },
+        {
+          "duration":30000,
+          "img_key": 22
+        },
+        {
+          "duration":30000,
+          "img_key": 23
+        },
+        {
+          "duration":30000,
+          "img_key": 27
+        }
+      ]
+
+    },
+    {
+      "name": "total_set",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 28
+        },
+        {
+          "duration":30000,
+          "img_key": 27
+        },
+        {
+          "duration": 30000,
+          "img_key": 19
+        },
+        {
+          "duration":30000,
+          "img_key": 25
+        },
+        {
+          "duration":30000,
+          "img_key": 22
+        },
+        {
+          "duration":30000,
+          "img_key": 11
+        },
+        {
+          "duration":30000,
+          "img_key": 21
+        },
+        {
+          "duration":30000,
+          "img_key": 17
+        },
+        {
+          "duration":30000,
+          "img_key": 22
+        },
+        {
+          "duration":30000,
+          "img_key": 23
+        },
+        {
+          "duration":30000,
+          "img_key": 27
+        }
+      ]
+
+    },
+    {
+      "name": "perfect_buts_1",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 28
+        },
+        {
+          "duration":30000,
+          "img_key": 24
+        },
+        {
+          "duration": 30000,
+          "img_key": 25
+        },
+        {
+          "duration":30000,
+          "img_key": 27
+        },
+        {
+          "duration":30000,
+          "img_key": 1
+        },
+        {
+          "duration":30000,
+          "img_key": 2
+        },
+        {
+          "duration":30000,
+          "img_key": 3
+        },
+        {
+          "duration":30000,
+          "img_key": 4
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 18
+        },
+        {
+          "duration":30000,
+          "img_key": 19
+        },
+        {
+          "duration":30000,
+          "img_key": 22
+        },
+        {
+          "duration":30000,
+          "img_key": 23
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 27
+        }
+
+      ]
+    },
+    {
+      "name": "perfect_buts_2",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 1
+        },
+        {
+          "duration":30000,
+          "img_key": 2
+        },
+        {
+          "duration": 30000,
+          "img_key": 3
+        },
+        {
+          "duration":30000,
+          "img_key": 4
+        },
+        {
+          "duration":30000,
+          "img_key": 17
+        },
+        {
+          "duration":30000,
+          "img_key": 11
+        },
+        {
+          "duration":30000,
+          "img_key": 21
+        },
+        {
+          "duration":30000,
+          "img_key": 26
+        }
+        ]
+    },
+    {
+      "name": "hard_nut",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 18
+        },
+        {
+          "duration": 30000,
+          "img_key": 19
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 5
+        },
+        {
+          "duration":30000,
+          "img_key": 10
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 11
+        },
+        {
+          "duration":30000,
+          "img_key": 16
+        },
+        {
+          "duration":30000,
+          "img_key": 26
+        }
+
+      ]
+
+    },
+    {
+      "name": "master_pack",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 28
+        },
+        {
+          "duration":30000,
+          "img_key": 24
+        },
+        {
+          "duration": 30000,
+          "img_key": 25
+        },
+        {
+          "duration":30000,
+          "img_key": 12
+        },
+        {
+          "duration":30000,
+          "img_key": 13
+        },
+        {
+          "duration":30000,
+          "img_key": 15
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 18
+        },
+        {
+          "duration":30000,
+          "img_key": 20
+        },
+        {
+          "duration":30000,
+          "img_key": 6
+        },
+        {
+          "duration":30000,
+          "img_key": 7
+        },
+        {
+          "duration":30000,
+          "img_key": 11
+        },
+        {
+          "duration":30000,
+          "img_key": 21
+        }
+
+      ]
+
+    },
+    {
+      "name": "perfect_buts_3",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 28
+        },
+        {
+          "duration":30000,
+          "img_key": 27
+        },
+        {
+          "duration": 30000,
+          "img_key": 25
+        },
+        {
+          "duration":30000,
+          "img_key": 15
+        },
+        {
+          "duration":30000,
+          "img_key": 9
+        },
+        {
+          "duration":30000,
+          "img_key": 5
+        },
+        {
+          "duration":30000,
+          "img_key": 14
+        },
+        {
+          "duration":30000,
+          "img_key": 16
+        },
+        {
+          "duration":30000,
+          "img_key": 20
+        },
+        {
+          "duration":30000,
+          "img_key": 12
+        }
+
+      ]
+
+    },
+    {
+      "name": "calorie_burner",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 28
+        },
+        {
+          "duration":30000,
+          "img_key": 24
+        },
+        {
+          "duration": 30000,
+          "img_key": 25
+        },
+        {
+          "duration":30000,
+          "img_key": 27
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 18
+        },
+        {
+          "duration":30000,
+          "img_key": 19
+        },
+        {
+          "duration":30000,
+          "img_key": 15
+        },
+        {
+          "duration":30000,
+          "img_key": 20
+        },
+        {
+          "duration":30000,
+          "img_key": 16
+        },
+        {
+          "duration":30000,
+          "img_key": 12
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 9
+        },
+        {
+          "duration":30000,
+          "img_key": 11
+        },
+        {
+          "duration":30000,
+          "img_key": 21
+        },
+        {
+          "duration":30000,
+          "img_key": 7
+        },
+        {
+          "duration":30000,
+          "img_key": 6
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        }
+
+      ]
+
+    },
+    {
+      "name": "hard_nut_2",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 28
+        },
+        {
+          "duration":30000,
+          "img_key": 18
+        },
+        {
+          "duration": 30000,
+          "img_key": 29
+        },
+        {
+          "duration":30000,
+          "img_key": 42
+        },
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 35
+        },
+        {
+          "duration":30000,
+          "img_key": 22
+        }
+
+      ]
+
+    },
+    {
+      "name": "total_set_2",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 8
+        },
+        {
+          "duration":30000,
+          "img_key": 30
+        },
+        {
+          "duration": 30000,
+          "img_key": 33
+        },
+        {
+          "duration":30000,
+          "img_key": 18
+        },
+        {
+          "duration":30000,
+          "img_key": 12
+        },
+        {
+          "duration":30000,
+          "img_key": 11
+        },
+        {
+          "duration":30000,
+          "img_key": 21
+        }
+
+      ]
+
+    },
+    {
+      "name": "sides_workout",
+      "exercises": [
+        {
+          "duration":30000,
+          "img_key": 27
+        },
+        {
+          "duration":30000,
+          "img_key": 16
+        },
+        {
+          "duration": 30000,
+          "img_key": 26
+        },
+        {
+          "duration":30000,
+          "img_key": 17
+        },
+        {
+          "duration":30000,
+          "img_key": 23
+        },
+        {
+          "duration":30000,
+          "img_key": 25
+        },
+        {
+          "duration":30000,
+          "img_key": 10
+        }
+
+      ]
+
+    }
+  ]
+}
