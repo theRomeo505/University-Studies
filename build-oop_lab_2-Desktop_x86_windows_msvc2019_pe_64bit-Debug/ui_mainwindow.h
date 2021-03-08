@@ -65,7 +65,7 @@ public:
         listWidget_timer->setGeometry(QRect(405, 40, 161, 192));
         listWidget_clocks = new QListWidget(centralwidget);
         listWidget_clocks->setObjectName(QString::fromUtf8("listWidget_clocks"));
-        listWidget_clocks->setGeometry(QRect(705, 40, 171, 192));
+        listWidget_clocks->setGeometry(QRect(700, 80, 171, 192));
         checkBox = new QCheckBox(centralwidget);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
         checkBox->setGeometry(QRect(60, 290, 121, 17));

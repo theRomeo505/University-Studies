@@ -1,0 +1,91 @@
+\hypertarget{classtree}{}\doxysection{tree Class Reference}
+\label{classtree}\index{tree@{tree}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtree_a20670af57bac810926d302491ed860ac}{addnod}} (string eng, string ru)
+\item 
+string \mbox{\hyperlink{classtree_aa160deeaac2047c05b0cd526ba178349}{find}} (string eng)
+\item 
+void \mbox{\hyperlink{classtree_aec4e57bb6c34fc64dc036eb1c209fe35}{changetrans}} (string eng, string ru)
+\item 
+void \mbox{\hyperlink{classtree_a0bea8ff8a5002e3d80b4592a5a1be1b7}{view}} ()
+\item 
+void \mbox{\hyperlink{classtree_a35b81f639556115253568a82b4fdc03c}{del\+\_\+tree}} (\mbox{\hyperlink{structnode}{node}} $\ast$\mbox{\hyperlink{classtree}{tree}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtree_a24163556cd5ab9a8846d1ee4155114d1}\label{classtree_a24163556cd5ab9a8846d1ee4155114d1}} 
+\mbox{\hyperlink{structnode}{node}} $\ast$ {\bfseries head}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Tree class 
+\begin{DoxyParams}{Parameters}
+{\em head} & Head of the tree \\
+\hline
+{\em temp} & Temporary variable for usage in recurse functions \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtree_a20670af57bac810926d302491ed860ac}\label{classtree_a20670af57bac810926d302491ed860ac}} 
+\index{tree@{tree}!addnod@{addnod}}
+\index{addnod@{addnod}!tree@{tree}}
+\doxysubsubsection{\texorpdfstring{addnod()}{addnod()}}
+{\footnotesize\ttfamily void tree\+::addnod (\begin{DoxyParamCaption}\item[{string}]{eng,  }\item[{string}]{ru }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds new node 
+\begin{DoxyParams}{Parameters}
+{\em eng} & Eng translation \\
+\hline
+{\em ru} & Rus translation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtree_aec4e57bb6c34fc64dc036eb1c209fe35}\label{classtree_aec4e57bb6c34fc64dc036eb1c209fe35}} 
+\index{tree@{tree}!changetrans@{changetrans}}
+\index{changetrans@{changetrans}!tree@{tree}}
+\doxysubsubsection{\texorpdfstring{changetrans()}{changetrans()}}
+{\footnotesize\ttfamily void tree\+::changetrans (\begin{DoxyParamCaption}\item[{string}]{eng,  }\item[{string}]{ru }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Changes russian translation to another 
+\begin{DoxyParams}{Parameters}
+{\em eng} & English word \\
+\hline
+{\em ru} & New russian translation \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classtree_a35b81f639556115253568a82b4fdc03c}\label{classtree_a35b81f639556115253568a82b4fdc03c}} 
+\index{tree@{tree}!del\_tree@{del\_tree}}
+\index{del\_tree@{del\_tree}!tree@{tree}}
+\doxysubsubsection{\texorpdfstring{del\_tree()}{del\_tree()}}
+{\footnotesize\ttfamily void tree\+::del\+\_\+tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnode}{node}} $\ast$}]{tree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Cleares all the memmory \mbox{\Hypertarget{classtree_aa160deeaac2047c05b0cd526ba178349}\label{classtree_aa160deeaac2047c05b0cd526ba178349}} 
+\index{tree@{tree}!find@{find}}
+\index{find@{find}!tree@{tree}}
+\doxysubsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily string tree\+::find (\begin{DoxyParamCaption}\item[{string}]{eng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Find russian translate for an english word 
+\begin{DoxyParams}{Parameters}
+{\em eng} & English translate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Russian translate 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classtree_a0bea8ff8a5002e3d80b4592a5a1be1b7}\label{classtree_a0bea8ff8a5002e3d80b4592a5a1be1b7}} 
+\index{tree@{tree}!view@{view}}
+\index{view@{view}!tree@{tree}}
+\doxysubsubsection{\texorpdfstring{view()}{view()}}
+{\footnotesize\ttfamily void tree\+::view (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Prints full tree Left-\/\+Middle-\/\+Right 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+2kurs2sem1lab\+\_\+oop.\+cpp\end{DoxyCompactItemize}

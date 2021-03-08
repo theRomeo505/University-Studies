@@ -59,8 +59,8 @@
    <widget class="QListWidget" name="listWidget_clocks">
     <property name="geometry">
      <rect>
-      <x>705</x>
-      <y>40</y>
+      <x>700</x>
+      <y>80</y>
       <width>171</width>
       <height>192</height>
      </rect>
