@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tree_8',['tree',['../classtree.html',1,'']]]
+  ['basic_5fostream_56',['basic_ostream',['../classbasic__ostream.html',1,'']]]
 ];

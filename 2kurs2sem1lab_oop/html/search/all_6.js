@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['view_6',['view',['../classtree.html#a0bea8ff8a5002e3d80b4592a5a1be1b7',1,'tree']]]
+  ['messagebuilder_20',['MessageBuilder',['../structdoctest_1_1detail_1_1_message_builder.html',1,'doctest::detail']]],
+  ['messagedata_21',['MessageData',['../structdoctest_1_1_message_data.html',1,'doctest']]]
 ];
