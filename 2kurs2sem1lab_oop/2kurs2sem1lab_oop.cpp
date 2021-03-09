@@ -37,8 +37,6 @@ bool check(string s) {
 
 /** 
 * Tree class
-* \param head Head of the tree
-* \param \private temp Temporary variable for usage in recurse functions
 */
 class tree {
 public:

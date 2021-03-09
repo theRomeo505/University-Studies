@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['del_5ftree_11',['del_tree',['../classtree.html#a35b81f639556115253568a82b4fdc03c',1,'tree']]]
+  ['find_12',['find',['../classtree.html#aa160deeaac2047c05b0cd526ba178349',1,'tree']]]
 ];

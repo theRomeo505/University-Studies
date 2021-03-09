@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['find_12',['find',['../classtree.html#aa160deeaac2047c05b0cd526ba178349',1,'tree']]]
+  ['view_13',['view',['../classtree.html#a0bea8ff8a5002e3d80b4592a5a1be1b7',1,'tree']]]
 ];
